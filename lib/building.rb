@@ -20,4 +20,13 @@ class Building
   def average_rent
     @units.sum {|unit| unit.monthly_rent.to_f} / @units.count
   end
+
+  def rented_units
+    units_rented = []
+    @units.find_all do |unit|
+      if unit.renter != nil
+        units_rented << unit
+      end
+    end
+  end
 end
