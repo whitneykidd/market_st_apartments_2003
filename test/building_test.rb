@@ -17,6 +17,7 @@ class BuildingTest < Minitest::Test
 
   def test_it_has_attributes
     assert_equal [], @building.units
+    assert_equal [], @building.renters
   end
 
   def test_it_can_add_units
