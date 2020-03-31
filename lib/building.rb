@@ -44,8 +44,16 @@ class Building
         bedrooms[unit.bedrooms] << unit.number
       else
       bedrooms[unit.bedrooms] = [unit.number]
+      end
     end
-  end
     bedrooms
-end
+  end
+
+  def annual_breakdown
+    breakdown = {}
+    rented_units.each do |unit|
+      breakdown[unit.renter.name] = (unit.monthly_rent * 12)
+    end
+    breakdown
+  end
 end
