@@ -19,7 +19,7 @@ class BuildingTest < Minitest::Test
 
   def test_it_has_attributes
     assert_equal [], @building.units
-    assert_equal [], @building.renters
+    # assert_equal [], @building.renters
   end
 
   def test_it_can_add_units
@@ -28,14 +28,15 @@ class BuildingTest < Minitest::Test
     assert_equal [@unit1, @unit2], @building.units
   end
 
-  def test_it_can_add_renters
+  def test_returns_renters
+    assert_equal [], @building.renters
     @building.add_unit(@unit1)
     @unit1.add_renter(@renter1)
+    assert_equal ["Aurora"], @building.renters
+
     @building.add_unit(@unit2)
     @unit2.add_renter(@renter2)
-    @building.add_renters
     assert_equal ["Aurora", "Tim"], @building.renters
-
   end
 
   def test_returns_average_rent
@@ -43,5 +44,4 @@ class BuildingTest < Minitest::Test
     @building.add_unit(@unit2)
     assert_equal 1099.5, @building.average_rent
   end
-
 end
