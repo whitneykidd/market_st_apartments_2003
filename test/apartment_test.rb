@@ -12,4 +12,12 @@ class RenterTest < Minitest::Test
   def test_it_exists
     assert_instance_of Apartment, @unit1
   end
+
+  def test_it_has_attributes
+    assert_equal "A1", @unit1.number
+    assert_equal 1200, @unit1.monthly_rent
+    assert_equal 1, @unit1.bathrooms
+    assert_equal 1, @unit1.bedrooms
+    assert_equal nil, @unit1.renter
+  end
 end
