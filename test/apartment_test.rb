@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/renter.rb'
 require './lib/apartment.rb'
 
-class RenterTest < Minitest::Test
+class ApartmentTest < Minitest::Test
   def setup
     @renter1 = Renter.new("Jessie")
     @unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
