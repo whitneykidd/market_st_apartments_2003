@@ -36,4 +36,16 @@ class Building
   end
   highest_unit.renter
   end
+
+  def units_by_number_of_bedrooms
+    bedrooms = {}
+    @units.each do |unit|
+      if bedrooms.keys.include?(unit.bedrooms)
+        bedrooms[unit.bedrooms] << unit.number
+      else
+      bedrooms[unit.bedrooms] = [unit.number]
+    end
+  end
+    bedrooms
+end
 end
