@@ -56,6 +56,23 @@ class BuildingTest < Minitest::Test
     assert_equal [], @building.rented_units
     @unit2.add_renter(renter1)
     assert_equal [@unit2], @building.rented_units
+  end
+
+  def test_returns_renter_with_highest_rent
+    renter1 = Renter.new("Spencer")
+    renter2 = Renter.new("Jessie")
+    renter3 = Renter.new("Max")
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+    @unit2.add_renter(renter1)
+    assert_equal renter1, @building.renter_with_highest_rent
+
+    @unit1.add_renter(renter2)
+    assert_equal renter2, @building.renter_with_highest_rent
+
+    @unit1.add_renter(renter3)
+    assert_equal renter3, @building.renter_with_highest_rent
 
   end
 end
