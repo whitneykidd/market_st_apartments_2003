@@ -13,6 +13,8 @@ class Apartment
   end
 
   def add_renter(renter)
+    if renter != nil
     @renter = renter
+    end
   end
 end

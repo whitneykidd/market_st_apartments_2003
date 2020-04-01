@@ -9,11 +9,11 @@ class Building
   end
 
   def renters
-    renter = @units.map do |unit|
-      unit.renter
+    renters = @units.find_all do |unit|
+      unit.renter != nil
     end
-    renter.map do |renter|
-      renter.name
+    renters.map do |unit|
+      unit.renter.name
     end
   end
 
@@ -59,7 +59,7 @@ class Building
 
   def rooms_by_renter
     by_renter = {}
-    rented_units.each do |unit|
+    rented_units.map do |unit|
       by_renter[unit.renter] = {bathrooms: unit.bathrooms, bedrooms: unit.bedrooms}
     end
   by_renter
